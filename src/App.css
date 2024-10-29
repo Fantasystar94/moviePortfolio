@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin:0 auto;
 }
 
 .App-logo {
@@ -35,4 +36,42 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body{background-color:#161616;color:#fff;}
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+  white-space: normal; 
+}
+
+body {
+  margin: 0; /* body의 마진 제거 */
+  padding: 0; /* body의 패딩 제거 */
+}
+
+ul {
+  list-style-type: none; 
+}
+
+.swiper:first-of-type{margin-bottom:50px;}
+.swiper-slide{margin:8px;width: 250px;}
+.swiper-slide.swiperItem{cursor:pointer;display:flex;flex-direction:column;gap:8px 0;}
+.swiper-slide.swiperItem h5{font-size:16px;}
+.swiper-slide.swiperItem span{color:gray;}
+.swiperImg{max-height:300px;overflow:hidden;display:flex;justify-content:center;}
+@media (max-width: 750px) {
+  .App {
+    text-align: center;
+    width:auto;
+    max-width:750px;
+    margin:0 auto;
+  }
+  .swiper{max-width:750px;}
+  .swiper-slide{margin:0 4px;width: 45%;}
 }

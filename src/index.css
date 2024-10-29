@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif; /* 기본 폰트 */
+  color: #333; /* 텍스트 색상 */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Spoqa Han Sans', sans-serif; /* 제목에 Spoqa Han Sans 적용 */
+}
+
+p {
+  line-height: 1.6; /* 가독성을 위한 줄 간격 */
+}

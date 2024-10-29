@@ -1,0 +1,12 @@
+.Top {
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+.title {
+    color: white;
+    font-family: 'YourUniqueFont', sans-serif; /* 원하는 독특한 폰트로 변경 */
+    font-size: 2.5em; /* 폰트 크기 조절 */
+    margin: 0;
+}
