@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from './Detail.module.css';
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation,useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
 const Detail = () => {
     //url 넘어온 데이터 세팅
     const location = useLocation();
+    const navigate = useNavigate();
     const { item, src } = location.state || {};
     //url 넘어온 데이터 세팅
     console.log(item)
@@ -16,6 +17,10 @@ const Detail = () => {
     const [error, setError] = useState('');
     const [actors, setActors] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const handleBack = () => {
+        navigate('/'); // '/' 경로로 이동
+    };
 
     const movieInfoSet = async (name) => {
         try {
@@ -65,7 +70,7 @@ const Detail = () => {
 
     return (
         <section>
-      
+                 <button className={styles.backButton} onClick={handleBack}>←</button>
                 <div className={styles.mainBox}>
                     <img src={src} alt="Movie Poster" />
                     <div className={styles.mainTitleWrap}>

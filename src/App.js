@@ -11,8 +11,8 @@ import util from './utils/util';
 function App() {
   return (
     <div className="App">
-      <Top></Top>
       <BrowserRouter>
+      <Top></Top>
       <Routes>
         <Route path="/" element={
           <>
