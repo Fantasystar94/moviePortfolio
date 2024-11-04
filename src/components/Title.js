@@ -1,12 +1,9 @@
 import React from "react";
-
+import styles from './Title.module.css'
 const Header =({title})=>{
-    const style = {
-        margin:'50px auto 100px',
-        fontSize:'25px',
-    }
+
     return (
-        <div style={style}>
+        <div className={styles.title} >
             <h1>{title}</h1>
         </div>
     )

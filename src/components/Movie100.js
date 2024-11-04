@@ -6,7 +6,7 @@ import styles from './Movie100.module.css';
 import Modal from './Modal';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'; 
-
+import useLocalStorageFetch from '../hooks/useLocalStorage';
 const Movie100 = ({ movieArray }) => {
     const [loading, setLoading] = useState(true);
     const [moviesData, setMoviesData] = useState([]);
@@ -39,23 +39,26 @@ const Movie100 = ({ movieArray }) => {
 
     useEffect(() => {
         const setAllMovie = async () => {
-            const promiseData = movieArray.map(item => fetchData(item));
+            const promiseData = movieArray[1].map(item => fetchData(item));
             const movieData = await Promise.all(promiseData);
+            console.log(movieData)
             setMoviesData(movieData.filter(Boolean));
         };
         setAllMovie();
     }, [movieArray]);
 
+
     const openModal = (movie) => {
         setSelectedMovie(movie);
         setIsModalOpen(true);
     };
-
+    
     const closeModal = () => {
         setIsModalOpen(false);
         setSelectedMovie(null);
     };
-
+    
+    // const { data: moviesData, loading, error } = useLocalStorageFetch('boxOfficeData', fetchData);
     if (loading) {
         return <Loading />;
     } else {
@@ -63,16 +66,21 @@ const Movie100 = ({ movieArray }) => {
             <>
                 <section className={styles.reccomendWrap}>
                     <Swiper
-                        slidesPerView={2}
-                        navigation
                         autoplay={{ delay: 3000, disableOnInteraction: false }}
+                        
+                        // slidesPerView={5} // 보여줄 슬라이드 수
+                        spaceBetween={20} // 슬라이드 간의 간격
+                        freeMode={true}
                         breakpoints={{
-                            1024: {
-                                slidesPerView:6,
-                            },
                             750: {
-                                slidesPerView:3,
+                                slidesPerView: 5,
+                                spaceBetween: 30, 
                             },
+                            320: {
+                                slidesPerView: 2,
+                                spaceBetween: 5, 
+                            },
+
                         }}
                     >
                         {moviesData.map((items, index) => (

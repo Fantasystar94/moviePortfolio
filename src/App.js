@@ -7,7 +7,7 @@ import Top from './components/Top'
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Movie100 from './components/Movie100';
 import Detail from './components/Detail';
-import util from './utils/util';
+import movieArray from './utils/movieArray';
 function App() {
   return (
     <div className="App">
@@ -19,8 +19,8 @@ function App() {
           <Title title={'영화 박스오피스'}></Title>
           <Main/>
           <Title title={'세계명작 영화'}></Title>
-          <Movie100 movieArray={util.koreaMovies} />
-          <Movie100 movieArray={util.classicMovies}/>
+          <Movie100 movieArray={movieArray.koreaMovies} />
+          <Movie100 movieArray={movieArray.classicMovies}/>
         </>
       }/>
       <Route path="/detail/:id" element={<Detail></Detail>}></Route>

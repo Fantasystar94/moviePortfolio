@@ -13,7 +13,7 @@ const Footer = () => {
                     <p>GitHub: <a href="https://github.com/fantasystar94" target="_blank" rel="noopener noreferrer">fantasystar94</a></p>
                 </div>
                 <div className={styles.copy}>
-                    <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} fantasystar94. All rights reserved.</p>
                 </div>
             </div>
         </footer>

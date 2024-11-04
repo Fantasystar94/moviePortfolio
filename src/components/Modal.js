@@ -40,8 +40,8 @@ const Modal = ({ isOpen, onClose, movieInfo, src }) => {
                         <h4 className={styles.titleEn}>{movieInfo.titleEng}</h4>
                         <span>{movieInfo.directors.director[0].directorNm.replace(/!HS|!HE/g, '').trim()} 감독 작품</span>
                         <span className={styles.genre}>{movieInfo.genre} {movieInfo.keywords}</span>
-                        <span>{movieInfo.rating}</span>
-                        <span>{movieInfo.actors.actor[0].actorNm} 주연</span>
+                        <span className={styles.rating}>{movieInfo.rating}</span>
+                        <span className={styles.actors}>{movieInfo.actors.actor[0].actorNm} 주연</span>
                         <a
                             href={`https://www.youtube.com/results?search_query=${encodeURIComponent("영화 " + movieInfo.title.replace(/!HS|!HE/g, '').trim())}`}
                             target="_blank"

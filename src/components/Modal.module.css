@@ -104,7 +104,9 @@
         width: 95%; /* 모바일에서 너비를 95%로 조정 */
         max-height:580px;
     }
-
+    .genre{
+        font-size:10px;
+    }
     .poster {
         width: 120px; /* 모바일에서 포스터 크기 조정 */
     }
@@ -116,7 +118,7 @@
     .titleEn {
         font-size: 14px; /* 영어 제목 크기 조정 */
     }
-
+    .rating,.actors{font-size:14px;}
     .plot {
         font-size: 12px; /* 플롯 텍스트 크기 조정 */
         height:120px;

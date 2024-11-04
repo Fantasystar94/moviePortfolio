@@ -7,9 +7,8 @@ const Detail = () => {
     //url 넘어온 데이터 세팅
     const location = useLocation();
     const navigate = useNavigate();
-    const { item, src } = location.state || {};
+    const { item } = location.state || {};
     //url 넘어온 데이터 세팅
-    console.log(item)
     const [movieInfo, setMovieInfo] = useState();
     const koreaFilmUrl = process.env.REACT_APP_KOREAFILM_URL;
     const imgKey = process.env.REACT_APP_KOREAFILM_KEY;
@@ -72,7 +71,7 @@ const Detail = () => {
         <section>
                  <button className={styles.backButton} onClick={handleBack}>←</button>
                 <div className={styles.mainBox}>
-                    <img src={src} alt="Movie Poster" />
+                    <img src={item.posters} alt="Movie Poster" />
                     <div className={styles.mainTitleWrap}>
                         <h3 className={styles.title}>{item.movieNm}</h3>
                         <h4 className={styles.titleEn}>{movieInfo.titleEng}</h4>
