@@ -18,7 +18,7 @@ function App() {
           <>
           <Title title={'영화 박스오피스'}></Title>
           <Main/>
-          <Title title={'세계명작 영화'}></Title>
+          <Title title={'추천영화'}></Title>
           <Movie100 movieArray={movieArray.koreaMovies} />
           <Movie100 movieArray={movieArray.classicMovies}/>
         </>
