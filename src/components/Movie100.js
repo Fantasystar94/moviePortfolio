@@ -41,7 +41,6 @@ const Movie100 = ({ movieArray }) => {
         const setAllMovie = async () => {
             const promiseData = movieArray[1].map(item => fetchData(item));
             const movieData = await Promise.all(promiseData);
-            console.log(movieData)
             setMoviesData(movieData.filter(Boolean));
         };
         setAllMovie();

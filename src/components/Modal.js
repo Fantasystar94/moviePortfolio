@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './Modal.module.css'; // CSS 파일 임포트
 
 const Modal = ({ isOpen, onClose, movieInfo, src }) => {
-    console.log(movieInfo);
     
     useEffect(() => {
         if (isOpen) {

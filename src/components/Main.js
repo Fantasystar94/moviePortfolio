@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from './Main.module.css';
 import axios from "axios";
 import Loading from "./Loading";
 import { useNavigate } from "react-router-dom";
 import formatDateToYYYYMMDD from '../utils/formatDateToYYYYMMDD';
 import useLocalStorageFetch from "../hooks/useLocalStorage";
+import { use } from "react";
 
 const Main = () => {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Main = () => {
     const imgKey = process.env.REACT_APP_KOREAFILM_KEY;
     const kobisurl = process.env.REACT_APP_KOBIS_URL;
     const koreaFilmUrl = process.env.REACT_APP_KOREAFILM_URL;
-
+    const [emptyImg,setEmptyImg] = useState('');
     const fetchData = async () => {
         const date = new Date();
         try {
@@ -36,12 +37,13 @@ const Main = () => {
                             ServiceKey: imgKey,
                             title: movie.movieNm,
                             listCount: 1,
+                            releaseDts:movie.openDt
                         }
                     });
-
+                    console.log(res.data.Data[0].Result[0]);
                     const result = res.data.Data[0].Result[0].posters;
                     const imgResult = await result.split('|');
-                    let returnData = imgResult[0] || "https://via.placeholder.com/213x303.png?text=213x303+sorry,%20can%27t%20find%20img";
+                    let returnData = imgResult[0] || emptyImg;
 
                     return {
                         ...movie,
@@ -60,6 +62,9 @@ const Main = () => {
         }
     };
 
+    useEffect(()=>{
+        setEmptyImg('https://via.placeholder.com/213x303.png?text=213x303+sorry,%20can%27t%20find%20img');
+    },[]);
     const { data: boxOffice, loading, error } = useLocalStorageFetch('boxOfficeData', fetchData);
 
     if (loading) {
